@@ -1,0 +1,17 @@
+        case .changeFilter(let filter):
+            newShape.filter = filter
+            
+        case .changeMedia(let action):
+            newShape.media = mediaReducer.reduce(newShape.media, action)
+        }
+        
+        return newShape
+        
+    }
+    
+}
+protocol StickerReducerProtocol {
+    mutating func reduce(_ currentState: Sticker,
+                         _ action: StickerModification) -> Sticker
+}
+
